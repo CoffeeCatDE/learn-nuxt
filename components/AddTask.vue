@@ -1,6 +1,7 @@
 <template>
   <form @submit.prevent="addTask">
     <input class="task" v-model="inputText" type="text" placeholder="Add your task" />
+    <input class="task-desc" v-model="inputDesc" type="text" placeholder="Add your description" />
     <button>+</button>
   </form>
 </template>
@@ -8,16 +9,19 @@
 <script setup lang="ts">
 const emit = defineEmits(["add-todo", "add-done-task"]);
 const inputText = ref("");
+const inputDesc = ref("");
 
 const addTask = () => {
   const text = inputText.value.trim();
+  const text2 = inputText.value.trim();
   const isInTheDonePage = window.location.pathname == "/done" ? true : false;
 
   if (text.length) {
-    if (isInTheDonePage) emit("add-done-task", { text: text, done: true });
-    else emit("add-todo", { text: text, done: false });
+    if (isInTheDonePage) emit("add-done-task", { text: text, desc: text, done: true });
+    else emit("add-todo", { text: text, desc: text, done: false });
   }
   inputText.value = "";
+  inputDesc.value = "";
 };
 </script>
 

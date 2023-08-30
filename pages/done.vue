@@ -19,8 +19,8 @@ onBeforeMount(() => changeShowMessage());
 const store = useTodoStore();
 const doneTasks = ref(store.getDoneTasks);
 
-const addDoneTask = ({ text, done }) => {
-  store.addTaskInStore(text, done);
+const addDoneTask = ({ text, desc, done }) => {
+  store.addTaskInStore(text, desc, done);
   updateDoneTasks();
 };
 

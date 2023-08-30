@@ -3,11 +3,12 @@ import { defineStore } from "pinia";
 export const useTodoStore = defineStore("todo", {
 	state: () => {
 		const tasks = [];
+		let description = "";
 		return { tasks };
 	},
 	actions: {
-		addTaskInStore(text: string, done: boolean): void {
-			this.tasks.push({ text: text, done: done });
+		addTaskInStore(text: string, desc: Text, done: boolean): void {
+			this.tasks.push({ text: text, desc: text, done: done });
 		},
 		deleteTaskFromStore(taskIndex: number) {
 			this.tasks.splice(taskIndex, 1);

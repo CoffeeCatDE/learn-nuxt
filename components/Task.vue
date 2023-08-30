@@ -5,7 +5,7 @@
       @focus="getSpanTextBeforeChange($event)"
       @focusout="changeTaskText($event)"
       :class="taskProps.done && 'done'"
-      >{{ taskProps.text }}</span
+      >{{ taskProps.text }} {{ taskProps.desc }}</span
     >
     <div class="actions">
       <img
