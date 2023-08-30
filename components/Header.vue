@@ -1,7 +1,7 @@
 <template>
   <header>
     <div class="base-container">
-      <h1>LH's To-do App 🐢</h1>
+      <h1>🪄WishManagement App by CoffeeCat</h1>
       <nav>
         <ul>
           <li><NuxtLink to="/">Todo</NuxtLink></li>
@@ -17,7 +17,7 @@
 
 <style lang="postcss" scoped>
 header {
-  @apply w-full bg-sky-800;
+  @apply w-full bg-lime-600;
 }
 .base-container {
   @apply max-w-4xl mx-auto text-white flex flex-col justify-around items-center h-28 py-3;

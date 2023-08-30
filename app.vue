@@ -1,5 +1,5 @@
 <template>
-  <Head><Title>LH's To-do App</Title></Head>
+  <Head><Title>Wishmanagement App by CoffeeCat</Title></Head>
   <NuxtPage />
 </template>
 

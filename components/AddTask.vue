@@ -35,7 +35,7 @@ input.task:focus {
 }
 
 button {
-  @apply bg-sky-800 aspect-square text-2xl text-white font-bold;
+  @apply bg-lime-600 aspect-square text-2xl text-white font-bold;
   height: 36px;
   margin-left: -5px;
 }
