@@ -3,12 +3,17 @@ import { defineStore } from "pinia";
 export const useTodoStore = defineStore("todo", {
 	state: () => {
 		const tasks = [];
-		let description = "";
-		return { tasks };
+		const tasksDesc = [];
+		
+		
+		return { tasks, tasksDesc };
 	},
 	actions: {
-		addTaskInStore(text: string, desc: Text, done: boolean): void {
-			this.tasks.push({ text: text, desc: text, done: done });
+		addTaskInStore(texter: string, desc: string, done: boolean): void {
+			// this.tasks.push({ text: "text",  done: done });
+
+			this.tasks.push({ text: texter,  done: done });
+			//this.tasksDesc.push({ desc: desc, done: done });			
 		},
 		deleteTaskFromStore(taskIndex: number) {
 			this.tasks.splice(taskIndex, 1);

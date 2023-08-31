@@ -8,6 +8,7 @@
       :taskProps="task"
       @update-done-tasks="updateDoneTasks"
     />
+    
     <p v-if="showMessage" class="no-tasks">No done tasks!</p>
   </NuxtLayout>
 </template>
