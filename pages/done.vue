@@ -6,7 +6,7 @@
       v-for="task in doneTasks || []"
       :key="task.text"
       :taskProps="task"
-      @update-done-tasks="updateDoneTasks"
+      @update-done-tasks="addTodo"
     />
     
     <p v-if="showMessage" class="no-tasks">No done tasks!</p>
@@ -20,8 +20,8 @@ onBeforeMount(() => changeShowMessage());
 const store = useTodoStore();
 const doneTasks = ref(store.getDoneTasks);
 
-const addDoneTask = ({ text, desc, done }) => {
-  store.addTaskInStore(text, desc, done);
+const addTodo = ({ text, desc, done, doneDesc }) => {
+  store.addTaskInStore(text, desc, done, doneDesc);
   updateDoneTasks();
 };
 

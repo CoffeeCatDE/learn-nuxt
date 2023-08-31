@@ -11,8 +11,7 @@
     <Task
       v-for="todoD in todosDesc || []"
       :key="todoD.text"
-      :taskDescProps="todosDesc"
-      @update-todos="updateTodosDesc"
+      :taskProps="todosDesc"
     />
     
     <p v-if="showMessage" class="no-tasks">No tasks todo!</p>
@@ -28,8 +27,8 @@ const store = useTodoStore();
 const todos = ref(store.getTasksTodo);
 const todosDesc = ref(store.getTasksDescTodo);
 
-const addTodo = ({ text, desc, done }) => {
-  store.addTaskInStore(text, desc, done);
+const addTodo = ({ text, desc, done, doneDesc }) => {
+  store.addTaskInStore(text, desc, done, doneDesc);
   updateTodos();
 };
 

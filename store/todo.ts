@@ -8,11 +8,13 @@ export const useTodoStore = defineStore("todo", {
 		return { tasks, tasksDesc };
 	},
 	actions: {
-		addTaskInStore(texter: string, desc: string, done: boolean): void {
+		addTaskInStore(texter: string, desc: string, done: boolean, doneDesc: boolean ): void {
 			// this.tasks.push({ text: "text",  done: done });
-
+			console.log("checki" + desc);
 			this.tasks.push({ text: texter,  done: done });
-			this.tasksDesc.push({ text: desc});
+			this.tasksDesc.push({ text: desc,  done: done });
+
+			
 			//this.tasksDesc.push({ desc: desc, done: done });			
 		},
 		deleteTaskFromStore(taskIndex: number) {
@@ -48,6 +50,7 @@ export const useTodoStore = defineStore("todo", {
 		getTasksTodo() {
 			return this.tasks.filter((task) => !task.done) || [];
 		},
+		// @bug yoooooo funktions falscher inhalt
 		getTasksDescTodo() {
 			return this.tasksDesc.filter((tasksDesc) => !tasksDesc.done) || [];
 		},
