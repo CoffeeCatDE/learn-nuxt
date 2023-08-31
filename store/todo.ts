@@ -8,15 +8,17 @@ export const useTodoStore = defineStore("todo", {
 		return { tasks, tasksDesc };
 	},
 	actions: {
-		addTaskInStore(texter: string, desc: string, done: boolean, doneDesc: boolean ): void {
-			// this.tasks.push({ text: "text",  done: done });
-			console.log("checki" + desc);
-			this.tasks.push({ text: texter,  done: done });
-			this.tasksDesc.push({ text: desc,  done: done });
 
-			
-			//this.tasksDesc.push({ desc: desc, done: done });			
+		
+		addTaskInStore(texter: string, done: boolean ): void {
+			this.tasks.push({ text: texter,  done: done });
 		},
+		addTaskDescInStore(desc: string, doneDesc: boolean ): void {
+			this.tasksDesc.push({ text: desc,  doneDesc: false });
+		},
+
+
+
 		deleteTaskFromStore(taskIndex: number) {
 			this.tasks.splice(taskIndex, 1);
 		},
@@ -52,13 +54,14 @@ export const useTodoStore = defineStore("todo", {
 		},
 		// @bug yoooooo funktions falscher inhalt
 		getTasksDescTodo() {
-			return this.tasksDesc.filter((tasksDesc) => !tasksDesc.done) || [];
+			console.log(JSON.stringify(this.tasksDesc));
+			return this.tasksDesc.filter((taskDesc) => !taskDesc.done) || [];
 		},
 		getDoneTasks() {
 			return this.tasks.filter((task) => task.done) || [];
 		},
 		getDoneDescTasks() {
-			return this.tasksDesc.filter((tasksDesc) => tasksDesc.done) || [];
+			return this.tasksDesc.filter((taskDesc) => taskDesc.done) || [];
 		},
 	},
 });

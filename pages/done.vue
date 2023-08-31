@@ -21,7 +21,8 @@ const store = useTodoStore();
 const doneTasks = ref(store.getDoneTasks);
 
 const addTodo = ({ text, desc, done, doneDesc }) => {
-  store.addTaskInStore(text, desc, done, doneDesc);
+  store.addTaskInStore(text, done);
+  store.addTaskDescInStore(desc, doneDesc);
   updateDoneTasks();
 };
 
