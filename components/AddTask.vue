@@ -13,12 +13,12 @@ const inputDesc = ref("");
 
 const addTask = () => {
   const text = inputText.value.trim();
-  const text2 = inputText.value.trim();
+  const text2 = inputDesc.value.trim();
   const isInTheDonePage = window.location.pathname == "/done" ? true : false;
 
   if (text.length) {
-    if (isInTheDonePage) emit("add-done-task", { text: text, desc: text, done: true });
-    else emit("add-todo", { text: text, desc: text, done: false });
+    if (isInTheDonePage) emit("add-done-task", { text: text, done: true });
+    else emit("add-todo", { text: text, text2: text, done: false });
   }
   inputText.value = "";
   inputDesc.value = "";

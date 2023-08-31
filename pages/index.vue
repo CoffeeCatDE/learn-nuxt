@@ -8,6 +8,13 @@
       :taskProps="todo"
       @update-todos="updateTodos"
     />
+    <Task
+      v-for="todoD in todosDesc || []"
+      :key="todoD.text"
+      :taskDescProps="todosDesc"
+      @update-todos="updateTodosDesc"
+    />
+    
     <p v-if="showMessage" class="no-tasks">No tasks todo!</p>
   </NuxtLayout>
 </template>
@@ -19,6 +26,7 @@ onBeforeMount(() => changeShowMessage());
 
 const store = useTodoStore();
 const todos = ref(store.getTasksTodo);
+const todosDesc = ref(store.getTasksDescTodo);
 
 const addTodo = ({ text, desc, done }) => {
   store.addTaskInStore(text, desc, done);
@@ -32,6 +40,11 @@ const changeShowMessage = () =>
 
 const updateTodos = () => {
   todos.value = store.getTasksTodo;
+  changeShowMessage();
+  store.updateTasksInLocalStorage();
+};
+const updateTodosDesc = () => {
+  todosDesc.value = store.getTasksDescTodo;
   changeShowMessage();
   store.updateTasksInLocalStorage();
 };

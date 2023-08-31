@@ -5,7 +5,8 @@
       @focus="getSpanTextBeforeChange($event)"
       @focusout="changeTaskText($event)"
       :class="taskProps.done && 'done'"
-      >{{ taskProps.text }} {{ taskProps.desc }}</span
+      >{{ taskProps.text }}
+      </span
     >
     <div class="actions">
       <img
@@ -30,6 +31,8 @@
       />
     </div>
   </li>
+
+  
 </template>
 
 <script setup lang="ts">
@@ -38,6 +41,7 @@ import { useTodoStore } from "~~/store/todo";
 const emit = defineEmits(["update-todos", "update-done-tasks"]);
 const props = defineProps({
   taskProps: Object,
+  taskDescProps: Object
 });
 
 const store = useTodoStore();

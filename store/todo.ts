@@ -4,8 +4,7 @@ export const useTodoStore = defineStore("todo", {
 	state: () => {
 		const tasks = [];
 		const tasksDesc = [];
-		
-		
+
 		return { tasks, tasksDesc };
 	},
 	actions: {
@@ -13,6 +12,7 @@ export const useTodoStore = defineStore("todo", {
 			// this.tasks.push({ text: "text",  done: done });
 
 			this.tasks.push({ text: texter,  done: done });
+			this.tasksDesc.push({ text: desc});
 			//this.tasksDesc.push({ desc: desc, done: done });			
 		},
 		deleteTaskFromStore(taskIndex: number) {
@@ -48,8 +48,14 @@ export const useTodoStore = defineStore("todo", {
 		getTasksTodo() {
 			return this.tasks.filter((task) => !task.done) || [];
 		},
+		getTasksDescTodo() {
+			return this.tasksDesc.filter((tasksDesc) => !tasksDesc.done) || [];
+		},
 		getDoneTasks() {
 			return this.tasks.filter((task) => task.done) || [];
+		},
+		getDoneDescTasks() {
+			return this.tasksDesc.filter((tasksDesc) => tasksDesc.done) || [];
 		},
 	},
 });
